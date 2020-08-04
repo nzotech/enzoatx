@@ -117,12 +117,16 @@ insert supplyCount values(9,'Wax Liquid',4);
 
 -- *** Below is a join clause used to match the Customer_ID data value to two tables (customerBookings table & ongoingSubscriptions table).
 -- This is used to get a dataset of the customer that are currently subscribed (Per the Select statement).
+
+-- TO VIEW THE OUTPUT FOR THIS CODE, REFERENCE CSV DOCUMENT RESULT 1 --
 select customerBookings.Customer_ID, customer.Customer_FirstName, customer.Customer_LastName, customerBookings.Purchase_Date
 from customerBookings
 inner join customer
 	on customerBookings.Customer_ID = customer.Customer_ID;
 
 -- Below is a groupBy clause used to define the groups of subscribed customers with zero tokens and more than zero tokens
+
+-- TO VIEW THE OUTPUT FOR THIS CODE, REFERENCE CSV DOCUMENT RESULT 2 --
 select ongoingSubscriptions.Customer_ID, ongoingSubscriptions.Subscription_ID, customer.Customer_FirstName, customer.Customer_LastName, ongoingSubscriptions.Subscription_Tokens
 from ongoingSubscriptions
 join customer
@@ -131,6 +135,8 @@ WHERE ongoingsubscriptions.Subscription_Tokens =0;
 
 
 -- This orders this specific table by its purchase date in an ascending order (Default Order Structure)
+
+-- TO VIEW THE OUTPUT FOR THIS CODE, REFERENCE CSV DOCUMENT RESULT 3 --
 select customerBookings.Customer_ID, customer.Customer_FirstName, customer.Customer_LastName, customerBookings.Purchase_Date
 from customerBookings 
 inner join customer
@@ -138,12 +144,16 @@ inner join customer
 ORDER BY Purchase_Date;
 
 -- This orders this specific table by its service cost in an ascending order (Default Order Structure)
+
+-- -- TO VIEW THE OUTPUT FOR THIS CODE, REFERENCE CSV DOCUMENT RESULT 4 --
 select *
 from enzoatxServices
 order by Service_Price ASC; -- You can also order it in descending order by putting 'desc' after the value being ordered (order by Service_Price desc;)
 
 
 -- This clause orders the customerBookings table by first displaying which customers are subscribed (1 being subscribed)
+
+-- TO VIEW THE OUTPUT FOR THIS CODE, REFERENCE CSV DOCUMENT RESULT 5 --
 select customerBookings.Customer_ID, customer.Customer_FirstName, customer.Customer_LastName, customerBookings.Subscribed_Customer
 from customerBookings 
 inner join customer
