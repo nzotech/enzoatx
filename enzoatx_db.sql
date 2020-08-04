@@ -138,11 +138,9 @@ inner join customer
 ORDER BY Purchase_Date;
 
 -- This orders this specific table by its service cost in an ascending order (Default Order Structure)
-select customerBookings.Customer_ID,customer.Customer_FirstName, customer.Customer_LastName, enzoatxServices.Service_Name, enzoatxServices.Service_Price
-from customerBookings
-inner join customer
-	on customerBookings.Customer_ID = customer.Customer_ID
-order by Service_Price; -- You can also order it in descending order by putting 'desc' after the value being ordered (order by Service_Price desc;)
+select *
+from enzoatxServices
+order by Service_Price ASC; -- You can also order it in descending order by putting 'desc' after the value being ordered (order by Service_Price desc;)
 
 
 -- This clause orders the customerBookings table by first displaying which customers are subscribed (1 being subscribed)
